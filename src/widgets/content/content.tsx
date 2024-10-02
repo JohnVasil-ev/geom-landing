@@ -1,12 +1,13 @@
-import { Anchors } from '@/shared/types';
-
-import style from './content.module.css';
+import { About, FreeSpace, Hero, Portfolio, Why } from './ui';
 
 export function Content() {
 	return (
 		<main>
-			<div className={style.hero} id={Anchors.Hero} />
-			<div className={style.about} id={Anchors.About} />
+			<Hero />
+			<About />
+			<Portfolio />
+			<FreeSpace />
+			<Why />
 		</main>
 	);
 }
