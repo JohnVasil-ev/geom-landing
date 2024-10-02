@@ -24,12 +24,27 @@
 	transition: 500ms;
 }
 
+.open-button {
+	top: 15px;
+	right: 15px;
+	width: 4rem;
+	height: 4rem;
+	z-index: 999;
+	padding: 10px;
+	display: flex;
+	cursor: pointer;
+	border-radius: 50%;
+	opacity: 0.5;
+	position: fixed;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #000000;
+}
+
 .close-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid black;
-	border-radius: 50%;
 	position: absolute;
 	top: 15px;
 	right: 15px;
