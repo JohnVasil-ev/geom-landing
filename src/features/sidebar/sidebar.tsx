@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Button, Portal } from '@/components';
+import { Anchors } from '@/shared/types';
+import { assertEq } from '@/shared/utils';
 
 import style from './sidebar.module.css';
 
@@ -20,18 +22,39 @@ export function Sidebar() {
 		if (!isActive) return;
 		setOpacity(0);
 		setTranslateX('100%');
+		document.body.classList.remove('model-open');
 		timerIdRef.current = setTimeout(() => setIsActive(false), 500);
 	}, [isActive]);
 
+	const onAnchorClick = (anchorID: Anchors) => {
+		const anchorEl = document.getElementById(anchorID);
+		if (!assertEq<HTMLElement>(anchorEl, `Anchor '${anchorID}' is not found!`)) {
+			return;
+		}
+		onSidebarClose();
+		setTimeout(() => anchorEl.scrollIntoView({ behavior: 'smooth' }), 0);
+	};
+
 	useEffect(() => {
+		const onCloseByKey = ({ code }: KeyboardEvent) => {
+			if (code !== 'Escape' || !isActive) return;
+			onSidebarClose();
+		};
+
 		if (isActive) {
 			setOpacity(0.6);
 			setTranslateX('0%');
 			document.body.classList.add('model-open');
+			window.addEventListener('keydown', onCloseByKey);
 		}
-		return onSidebarClose;
+
+		return () => {
+			onSidebarClose();
+			window.removeEventListener('keydown', onCloseByKey);
+		};
 	}, [isActive, onSidebarClose]);
 
+	// TODO(IV): Change text in buttons to SVGs
 	return (
 		<>
 			<Button onClick={onSidebarOpen}>Open sidebar</Button>
@@ -40,7 +63,25 @@ export function Sidebar() {
 				<div className={style['sidebar-wrapper']}>
 					<div className={style.backdrop} style={{ opacity }} onClick={onSidebarClose} />
 					<div className={style.sidebar} style={{ transform: `translate(${translateX}, 0%)` }}>
-						Sidebar
+						<Button className={style['close-button']} onClick={onSidebarClose}>X</Button>
+
+						<div className={style.anchors}>
+							<span className={style.anchor} onClick={() => onAnchorClick(Anchors.Hero)}>
+								Домой
+							</span>
+
+							<span className={style.anchor} onClick={() => onAnchorClick(Anchors.About)}>
+								О Нас
+							</span>
+
+							<span className={style.anchor} onClick={() => onAnchorClick(Anchors.Portfolio)}>
+								Портфолио
+							</span>
+
+							<span className={style.anchor} onClick={() => onAnchorClick(Anchors.Contacts)}>
+								Контакты
+							</span>
+						</div>
 					</div>
 				</div>
 			</Portal>

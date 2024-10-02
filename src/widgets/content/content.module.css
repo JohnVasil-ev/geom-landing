@@ -1,3 +1,7 @@
-.content {
+.hero {
 	height: 500vh;
+}
+
+.about {
+	height: 100vh;
 }

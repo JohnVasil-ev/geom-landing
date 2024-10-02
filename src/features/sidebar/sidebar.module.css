@@ -23,3 +23,31 @@
 	background-color: #b8e026;
 	transition: 500ms;
 }
+
+.close-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid black;
+	border-radius: 50%;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 2rem;
+	height: 2rem;
+	background-color: transparent;
+}
+
+.anchors {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.anchor {
+	font-size: 1.5rem;
+	font-weight: 400;
+	width: fit-content;
+	cursor: pointer;
+	text-transform: uppercase;
+}
