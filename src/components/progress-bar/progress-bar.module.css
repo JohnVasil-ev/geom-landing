@@ -1,0 +1,10 @@
+.progress-bar {
+	width: 100vw;
+	height: 1rem;
+	z-index: 1000;
+}
+
+.progress {
+	height: 1rem;
+	background-color: #c4f274;
+}

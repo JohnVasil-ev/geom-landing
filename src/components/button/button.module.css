@@ -1,0 +1,11 @@
+.button {
+	display: block;
+}
+
+.primary {
+	display: flex;
+}
+
+.secondary {
+	display: block;
+}
