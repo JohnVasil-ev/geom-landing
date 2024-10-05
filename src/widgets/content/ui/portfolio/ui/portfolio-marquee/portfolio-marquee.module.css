@@ -1,0 +1,9 @@
+.portfolio-marquee {
+	margin: 0.75rem 0;
+}
+
+.portfolio-marquee-item {
+	margin-right: 15rem;
+	color: #cc2929;
+	font-size: 2.75rem;
+}

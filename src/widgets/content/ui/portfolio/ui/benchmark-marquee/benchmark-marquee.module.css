@@ -1,0 +1,15 @@
+.marquee {
+	margin: 2rem 0;
+}
+
+.marquee-item {
+	color: #949494;
+	font-size: 3rem;
+	display: flex;
+	align-items: center;
+}
+
+.marquee-item-dot {
+	color: #9dfc03;
+	margin: 0 1.25rem;
+}

@@ -68,7 +68,7 @@ export function Sidebar() {
 					<div className={style.sidebar} style={{ transform: `translate(${translateX}, 0%)` }}>
 						<Button className={style['close-button']} onClick={onSidebarClose}>
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#000000" strokeWidth="1">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+								<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
 							</svg>
 						</Button>
 
